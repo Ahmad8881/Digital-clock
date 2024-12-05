@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    div {
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #clock {
+        color: antiquewhite;
+        font-size: 8rem;
+
+    }
+</style>
+
+<body>
+    <div>
+        <div class="one">
+            <span id="clock">hello</span>
+        </div>
+    </div>
+
+    <script>
+
+        function clock() {
+            var date = new Date()
+            var h = date.getHours()
+            var m = date.getMinutes()
+            var s = date.getSeconds()
+            var am = h >= 12 ? "PM" : "AM"
+            var h = h % 12 || 12
+
+            let time = "TIME  " + h + " : " + m + " : " + s + "   " + am
+            document.getElementById("clock").innerHTML = time;
+
+            setTimeout(clock, 1000)
+        }
+        clock()
+
+    </script>
+</body>
+
+</html>
